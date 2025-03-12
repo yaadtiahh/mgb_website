@@ -1,0 +1,126 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% block css %}{% endblock %}
+  <link rel="stylesheet" href="{% static 'css/template.css' %}">
+  <link rel="stylesheet" href="{% static 'css/header.css' %}">
+  <title>{% block title %}{% endblock %}</title>
+  
+</head>
+<body class="profile">
+
+  <header class="header">
+    <div class="header-left">
+      <div class="logo_header">
+        <a href="/">
+          <img src="{% static 'imgs/MGB_logo.svg' %}" alt="main logo">
+        </a>
+      </div>
+      <nav class="nav_header">
+        <ul>
+          <li><a href="/movies">Movies</a></li>
+          <li><a href="/games">Games</a></li>
+          <li><a href="/books">Books</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="header-right">
+      <div class="search-container">
+        <button id="dropdownButtonSearch" class="dropdown-btn">
+          <img src="{% static 'imgs/icons/gamepad_icon.svg' %}" alt="zalupa">
+          <img src="{% static 'imgs/icons/arrow_down.svg' %}" alt="zalupa">
+        </button>
+        <input type="text" placeholder="Game search">
+        <img src="{% static 'imgs/icons/zalupa.svg' %}" class="search_zalupa" alt="zalupa">
+        <div id="dropdownSearch" class="dropdown-search">
+            <a href="#">🎮 Game</a>
+            <a href="#">📺 Movies</a>
+            <a href="#">📖 Book</a>
+        </div>
+      </div>
+    
+      <div class="language_header">
+        <img src="{% static 'imgs/icons/language_icon.svg' %}" alt="language icon">
+        <button id="dropdownButtonLanguage" class="dropdown-btn">
+          En
+          <img src="{% static 'imgs/icons/arrow_down.svg' %}" alt="zalupa">
+        </button>
+
+        <div id="dropdownLanguage" class="dropdown-language">
+          <a href="#">Русский</a>
+          <a href="#">Polski</a>
+          <a href="#">English</a>
+        </div>
+      </div>
+      <div class="sign_header">
+        <a href="/profile">
+          <img src="{% static 'imgs/icons/profile_btn.svg' %}" alt="profile default">
+        </a>
+      </div>
+    </div>
+  </header>
+  <div class="profile-block">
+    <div class="profile-info-block">
+      <img src="{% static 'imgs/icons/profile_btn.svg' %}" alt="profile default">
+      <h1>yaadtiahh</h1>
+      <p>moyapochta@gmail.com</p>
+    </div>
+
+    <hr>
+
+    <div class="profile-tools">
+      <div class="profile-tool">
+        <img src="{% static 'imgs/icons/profile_block.svg' %}" alt="profile default">
+        <p>Profile</p>
+      </div>
+
+      <div class="profile-tool">
+        <img src="{% static 'imgs/icons/profile_friends.svg' %}" alt="profile default">
+        <p>Friends</p>
+      </div>
+
+      <div class="profile-tool">
+        <img src="{% static 'imgs/icons/profile_mail.svg' %}" alt="profile default">
+        <p>Notifications</p>
+      </div>
+
+      <div class="profile-tool">
+        <img src="{% static 'imgs/icons/profile_settings.svg' %}" alt="profile default">
+        <p>Settings</p>
+      </div>
+      
+    </div>
+
+    <hr>
+    
+    <div class="profile-logout">
+      <div class="profile-tool">
+        <img src="{% static 'imgs/icons/add_account.svg' %}" alt="profile default">
+        <p>Add account</p>
+      </div>
+
+      <div class="profile-tool">
+        <img src="{% static 'imgs/icons/logout.svg' %}" alt="profile default">
+        <p>Log out</p>
+      </div>
+      
+    </div>
+  </div>
+
+  <main>
+    {% block content %}
+    {% endblock %}
+  </main>
+  
+
+  <footer></footer>
+
+  <script src="{% static 'scripts/template.js' %}"></script>
+</body>
+</html>

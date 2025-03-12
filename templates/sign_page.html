@@ -1,0 +1,99 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Form</title>
+  <link rel="stylesheet" href="{% static 'css/sign.css' %}">
+</head>
+<body>
+
+  <div class="reg-container">
+    <img src="{% static 'imgs/bigMGB_logo.svg' %}" alt="language icon">
+
+    <div class="sign_content">
+      <h1>Join Today</h1>
+
+      <div class="registration">
+        <button>Sign up with Google</button>
+        <div class="lines-or">
+          <hr>
+          <p style="color: white;"> or </p>
+          <hr>
+        </div>
+        <button id="open-reg" class="reg">Create account</button>
+        <p>By signing up, you agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy.</a></p>
+      </div>
+
+      <div class="login">
+        <h2>Already have an account?</h2>
+        <button id="open-log" class="log">Sign In</button>
+      </div>
+
+      <div id="reg">
+        <div class="reg-modal">
+          <button class="krestik">+</button>
+
+          <div class="modal-photo">
+            <img src="{% static 'imgs/MGB_logo.svg' %}" alt="language icon">
+          </div>
+          
+          <h1>Create your account</h1>
+          <form class="form_content"  method="post">
+            <!-- {% csrf_token %}
+            {{ form.username }}
+
+            {{ form.email }}
+
+            {{ form.password1 }}
+            {{ form.password2 }}
+
+            {% if form.errors %}
+              <label>{{form.errors}}</label>
+            {% endif %} -->
+            <div class="btn-reg-next">
+              <button type="submit">Next</button>
+            </div>
+            
+        </div>
+      </div>
+    
+      <div id="log">
+        <div class="log-modal">
+          <button class="krestik">+</button>
+
+          <div class="modal-photo">
+            <img src="{% static 'imgs/MGB_logo.svg' %}" alt="language icon">
+          </div>
+          
+          <h1>Welcome back</h1>
+          <form class="form_content"  method="post">
+            <!-- {% csrf_token %}
+            {{ form.username }}
+            {{ form.password1 }}
+
+            {% if form.errors %}
+              <label>{{form.errors}}</label>
+            {% endif %} -->
+            <div class="btn-log-next">
+              <button type="submit">Sign In</button>
+              <a href="#">Forgot your password?</a>
+            </div>
+            
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  
+  
+
+
+  <script src="{% static 'scripts/sign_page.js' %}"></script>
+</body>
+</html>

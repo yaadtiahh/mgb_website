@@ -1,0 +1,145 @@
+{% extends 'template.html' %}
+
+{% load static %}
+
+{% block title %}
+  Profile
+{% endblock %}
+
+{% block css %}
+  <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+{% endblock %}
+
+{% block content %}
+  <div class="profile-container">
+
+    <div class="profile">
+      <div class="profile-header"></div>
+      <div class="profile-photo"></div>
+      <div class="profile-settings">
+        <div class="counter-mgb">
+          <span class="movies">9 movies</span>
+          <span class="games">13 games</span>
+          <span class="books">9 books</span>
+        </div>
+        <button class="edit-profile">Edit profile</button>
+        <button class="share-profile">
+          <img src="{% static 'imgs/icons/share.svg' %}" alt="language icon">
+        </button>
+
+      </div>
+      <div class="profile-info">
+        <h1>Nickname</h1>
+        <p>Lorem ispum is simply dummy text of the printing</p>
+        <div class="joining-date">
+          <img src="{% static 'imgs/icons/calendar.svg' %}" alt="language icon">
+          <p>Joined  </p> <!--{{ user.date_joined }}-->
+        </div>
+        <div class="follow">
+          <p><span>12</span> Following</p>
+          <p><span>126</span> Followers</p>
+        </div>
+        
+      </div>
+      
+    </div>
+
+    <div class="tabs">
+      <button class="active" onclick="showTab('reviews')">Reviews</button>
+      <button onclick="showTab('overview')">Overview</button>
+      <button onclick="showTab('custom-lists')">Custom Lists</button>
+      <button onclick="showTab('challenges')">Challenges</button>
+    </div>
+  
+    <!-- Reviews -->
+    <div id="reviews" class="tab-content active">
+      <div class="choose-mgb">
+          <button class="active" onclick="showSubTab('games')">Games</button>
+          <button onclick="showSubTab('movies')">Movies</button>
+          <button onclick="showSubTab('books')">Books</button>
+      </div>
+  
+      <div id="games" class="sub-tab-content active">
+        <div class="filters-buttons">
+          <div class="btns-count">
+            <p>20 Games</p>
+            <button class="active">All</button>
+            <button onclick="showSubSubTab('#')">Played</button>
+            <button onclick="showSubSubTab('#')">Playing</button>
+            <button onclick="showSubSubTab('#')">Dropped</button>
+            <button onclick="showSubSubTab('#')">Wishlist</button>
+          </div>
+          <button class="add-mgb">+</button>
+        </div>
+      </div>
+
+      <div id="movies" class="sub-tab-content">
+        <div class="filters-buttons">
+          <div class="btns-count">
+            <p>20 Games</p>
+            <button class="active">All</button>
+            <button onclick="showSubSubTab('#')">Played</button>
+            <button onclick="showSubSubTab('#')">Playing</button>
+            <button onclick="showSubSubTab('#')">Dropped</button>
+            <button onclick="showSubSubTab('#')">Wishlist</button>
+          </div>
+          <button class="add-mgb">+</button>
+        </div>
+
+        
+      </div>
+
+      <div id="books" class="sub-tab-content">
+        <div class="filters-buttons">
+          <div class="btns-count">
+            <p>20 Games</p>
+            <button class="active">All</button>
+            <button onclick="showSubSubTab('#')">Played</button>
+            <button onclick="showSubSubTab('#')">Playing</button>
+            <button onclick="showSubSubTab('#')">Dropped</button>
+            <button onclick="showSubSubTab('#')">Wishlist</button>
+          </div>
+          <button class="add-mgb">+</button>
+        </div>
+
+        
+      </div>
+
+    </div>
+    
+    <!-- Overview -->
+    <div id="overview" class="tab-content">
+      <div class="overview-container">
+        <a href="#">
+          <div class="overview-movies">
+            <h1>Movies: 9</h1>
+          </div>
+        </a>
+        <a href="#">
+          <div class="overview-games">
+            <h1>Games: 13</h1>
+          </div>
+        </a>
+        <a href="#">
+          <div class="overview-books">
+            <h1>Books: 9</h1>
+          </div>
+        </a>
+      </div>
+    </div>
+    
+    <!-- Custom Lists -->
+    <div id="custom-lists" class="tab-content">
+      <h2>Custom Lists</h2>
+      <p>Контент вкладки Custom Lists</p>
+    </div>
+    
+    <!-- Challenges -->
+    <div id="challenges" class="tab-content">
+      <h2>Challenges</h2>
+      <p>Контент вкладки Challenges</p>
+    </div>
+
+  </div>
+  <script src="{% static 'scripts/profile.js' %}"></script>
+{% endblock %}

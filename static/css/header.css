@@ -1,0 +1,143 @@
+/* Базовые стили для всех хедеров */
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: max(24px, calc(50% - 600px));
+  padding-right: max(24px, calc(50% - 600px));
+  padding-top: 50px;
+  margin: 0;
+}
+
+/* Фиксированный хедер для preview.html */
+body.preview header {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1200px;
+  z-index: 1001;
+}
+
+
+/*  ХЭДЕР ЛЕВО */
+/* _______________________________________________________________________________________________ */
+.header-left{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: max(75px);
+  gap: auto;
+}
+.nav_header ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+.nav_header li {
+  font-size: 19px;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+}
+
+/*  ХЭДЕР ПРАВО */
+/* _______________________________________________________________________________________________ */
+
+.header-right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: max(25px);
+  gap: auto;
+}
+
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  border: 1px solid white;
+  border-radius: 25px;
+  width: 275px;
+  padding: 0 16px;
+}
+
+.search-container .dropdown-btn {
+  display: flex;
+  flex-direction: row;
+} 
+
+.search-container input {
+  background: none;
+  border: none;
+  height: 100%;
+  width: 100%;
+  color: white;
+}
+
+.search_zalupa {
+  cursor: pointer;
+}
+
+.dropdown-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: white;
+}
+
+.dropdown-search, .dropdown-language {
+  display: none;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  background-color: #1a1a1a;
+  color: white;
+  border-radius: 5px;
+  padding: 5px 0;
+  width: 120px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-search a, .dropdown-language a{
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: white;
+}
+
+.dropdown-search a:hover {
+  background-color: #3a3a3a;
+}
+
+.dropdown-language a:hover {
+  background-color: #3a3a3a;
+}
+
+
+.language_header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid white;
+  border-radius: 5px;
+  width: 90px;
+  height: 32px;
+  gap: 8px;
+  position: relative;
+}
+
+.language_header .dropdown-btn {
+  color: white;
+  font-size: 14px;
+}

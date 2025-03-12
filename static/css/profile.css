@@ -1,0 +1,278 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+.profile-container {
+  margin-top: 130px;
+  padding-left: max(24px, calc(50% - 480px));
+  padding-right: max(24px, calc(50% - 480px));
+}
+
+
+.profile {
+  width: 100%;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+}
+
+.profile-header {
+  width: 100%;
+  height: 300px;
+  background-color: white;
+  border-radius: 20px;
+}
+
+.profile-info {
+  padding: 0 max(75px, calc(50% - 480px));
+}
+
+.profile-photo {
+  position: absolute;
+  top: 225px; 
+  left: 75px;
+  background: url(/static/imgs/icons/default_profile_icon.svg);
+  width: 134px;
+  height: 134px;
+  border-radius: 50%;
+}
+
+.profile-settings {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+  margin-right: 75px;
+  width: 600px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile-settings .counter-mgb {
+  gap: 15px;
+}
+
+.counter-mgb {
+  display: flex;
+  flex-direction: row;
+  height: 38px;
+  align-items: center;
+}
+
+.counter-mgb .games, .counter-mgb .movies, .counter-mgb .books {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: black;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  border-radius: 5px;
+  width: 100px;
+  height: 25px;
+  text-align: center;
+}
+
+.counter-mgb .games {
+  background-color: #FCAF17;
+}
+
+.counter-mgb .movies {
+  background-color: #00ECFF;
+}
+
+.counter-mgb .books {
+  background-color: #F53FA1;
+}
+
+.edit-profile {
+  background: none;
+  border-radius: 40px;
+  border: 2px solid #6C6C6C;
+  width: 144px;
+  height: 38px;
+  color: white;
+}
+
+.share-profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  width: 38px;
+  height: 38px;
+  border: none;
+  cursor: pointer;
+}
+
+/* ПРОФИЛЬ ИФНО */
+/* _______________________________________________________________________________________________ */
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.joining-date {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+}
+
+.joining-date p{
+  color: #6C6C6C;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+}
+
+.follow {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+}
+
+.follow p {
+  color: #6C6C6C;
+}
+
+.follow span {
+  color: white;
+  font-weight: 700;
+}
+
+/*  TABS */
+/* _______________________________________________________________________________________________ */
+.tabs {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 max(150px, calc(50% - 480px));
+  flex-direction: row;
+  margin-top: 30px;
+}
+
+.tabs button {
+  position: relative;
+  background: none;
+  color: #6C6C6C;
+  font-size: 19px;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.tabs button:not(:last-child) {
+  margin-right: 10px;
+}
+
+.tabs button.active {
+  color: white;
+}
+
+.tabs button.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -7px;
+  width: 100%;
+  height: 3px;
+  background-color: #FF003C;
+  transition: width 0.3s ease;
+}
+
+.tab-content {
+  display: none;
+  margin-top: 37px;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* REVIEWS */
+/* _____________________________________________________________________________ */
+.choose-mgb {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.choose-mgb button {
+  background: transparent;
+  width: 320px;
+  height: 45px;
+  border: none;
+  position: relative;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 25px;
+}
+
+.choose-mgb button.active {
+  background: #FF003C;
+  color: black;
+}
+
+.sub-tab-content {
+  display: none;
+  margin-top: 20px;
+}
+
+.sub-tab-content.active {
+  display: block;
+}
+
+/* КНОПКИ ФИЛЬТРЫ */
+/* _____________________________________________________________________________ */
+
+
+
+/* OVERVIEW */
+/* _____________________________________________________________________________ */
+
+.overview-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.overview-movies, .overview-games, .overview-books {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 310px;
+  height: 180px;
+  
+}
+
+.overview-block h1, .overview-games h1, .overview-books h1{
+  font-size: 28px;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+
+.overview-movies {
+  background: url(/static/imgs/movies_overview_bg.png);
+  background-position: center;
+  background-size: contain;
+}
+.overview-games {
+  background: url(/static/imgs/games_overview_bg.png);
+  background-position: center;
+  background-size: contain;
+}
+.overview-books {
+  background: url(/static/imgs/books_overview_bg.png);
+  background-position: center;
+  background-size: contain;
+}
