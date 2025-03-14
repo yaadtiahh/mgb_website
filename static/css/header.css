@@ -1,26 +1,25 @@
-/* Базовые стили для всех хедеров */
 header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;  /* Растягиваем хедер на всю ширину */
+  height: 100px;
+  z-index: 100; /* Чтобы хедер был выше остальных элементов */
+  
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding-left: max(24px, calc(50% - 600px));
-  padding-right: max(24px, calc(50% - 600px));
-  padding-top: 50px;
-  margin: 0;
-}
 
-/* Фиксированный хедер для preview.html */
-body.preview header {
-  position: fixed;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  max-width: 1200px;
-  z-index: 1001;
+  padding-top: 20px; /* Можно уменьшить, если хедер слишком высокий */
+  padding-bottom: 20px; /* Добавляем немного, чтобы не прижималось к контенту */
+  
+  
+  /* Оставляем отступы слева и справа */
+  padding-left: max(24px, calc(50% - 640px));
+  padding-right: max(24px, calc(50% - 640px));
+  box-sizing: border-box;
 }
-
 
 /*  ХЭДЕР ЛЕВО */
 /* _______________________________________________________________________________________________ */

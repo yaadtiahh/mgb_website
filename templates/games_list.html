@@ -1,0 +1,71 @@
+{% extends 'template.html' %}
+
+{% load static %}
+
+{% block title %}
+  Games
+{% endblock %}
+
+{% block css %}
+  <link rel="stylesheet" href="{% static 'css/games.css' %}">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+{% endblock %}
+
+{% block content %}
+  <div class="game-container">
+    <div class="swiper">
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-wrapper">
+        {% for game in games %}
+          <div class="swiper-slide" style="background: url('{{ game.background_game.url }}');background-size: cover;
+          background-repeat: no-repeat; background-position: center;">
+            <div class="game-info">
+              <img src="{{ game.logotype_game.url }}" alt="">
+              <div class="mini-info">
+                <p style="color: greenyellow;">8,8</p>
+                <p>{{ game.release_date }},</p>
+                <p>RPG ROUND8 Studio, Neowiz  18+</p>
+              </div>
+              <p>{{ game.description }}</p>
+
+              <div class="btns-game">
+                <button class="btn-star">
+                  <img src="{% static 'imgs/icons/star_btn.svg' %}" alt="">
+                </button>
+                <button class="btn-favourite">
+                  <img src="{% static 'imgs/icons/fav_btn.svg' %}" alt="">
+                </button>
+                <button class="btn-learn">Learn More</button>
+              </div>
+            </div>
+            
+          </div>
+        {% endfor %}
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    const swiper = new Swiper('.swiper', {
+        loop: true,
+        autoplay: { delay: 3000 },
+        effect: 'slide',
+        speed: 800,
+
+        grabCursor: true,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+            renderBullet: function (index, className) {
+                return '<span class="' + className + '"></span>';
+            },
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+</script>
+{% endblock %}

@@ -1,27 +1,26 @@
-document.getElementById('open-reg').addEventListener('click', function () {
-  document.getElementById('reg').classList.add('--show'); // Открывает форму
-  document.getElementById('log').classList.remove('--show');  // Закрывает логин
-});
+document.addEventListener("DOMContentLoaded", function () {
+  const regModal = document.getElementById("reg");
+  const openReg = document.getElementById("open-reg");
+  const closeButton = document.querySelector(".close-modal"); // Находим крестик
 
-document.getElementById('open-log').addEventListener('click', function () {
-  document.getElementById('log').classList.add('--show'); // Открывает логин
-  document.getElementById('reg').classList.remove('--show');  // Закрывает регистрацию
-});
+  if (openReg && regModal) {
+    openReg.addEventListener("click", function () {
+      regModal.classList.add("--show");
+    });
+  }
 
-// Закрытие форм при клике на крестик
-document.querySelectorAll('.krestik').forEach(function (button) {
-  button.addEventListener('click', function () {
-    document.getElementById('reg').classList.remove('--show');
-    document.getElementById('log').classList.remove('--show');
+  // Закрытие модалки (крестик)
+  if (closeButton) {
+    closeButton.addEventListener("click", function (event) {
+      event.stopPropagation();
+      regModal.classList.remove("--show");
+    });
+  }
+
+  // Закрытие по клику вне формы (по фону)
+  regModal.addEventListener("click", function (event) {
+    if (event.target === regModal) {
+      regModal.classList.remove("--show");
+    }
   });
 });
-
-// Закрытие форм при клике вне их области
-document.addEventListener('click', function (event) {
-  if (!event.target.closest('.reg-modal') && !event.target.closest('.log-modal') &&
-      !event.target.closest('#open-reg') && !event.target.closest('#open-log')) {
-    document.getElementById('reg').classList.remove('--show');
-    document.getElementById('log').classList.remove('--show');
-  }
-});
-

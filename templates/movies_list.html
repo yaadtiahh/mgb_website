@@ -1,0 +1,37 @@
+{% extends 'template.html' %}
+
+{% load static %}
+
+{% block title %}
+  Movies
+{% endblock %}
+
+{% block css %}
+  <link rel="stylesheet" href="{% static 'css/movies.css' %}">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+{% endblock %}
+
+{% block content %}
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      {% for movie in movies %}
+        <div class="swiper-slide" style="background: url('{{ movie.image.url }}');">
+          <h2>{{ movie.title }}</h2>
+          <p>{{ movie.description }}</p>
+        </div>
+      {% endfor %}
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    const swiper = new Swiper('.swiper', {
+        loop: true,
+        pagination: { el: '.swiper-pagination', clickable: true },
+        autoplay: { delay: 3000 },
+        effect: 'coverflow',
+        grabCursor: true,
+    });
+  </script>
+{% endblock %}

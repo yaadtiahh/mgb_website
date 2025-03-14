@@ -14,26 +14,35 @@
   <div class="profile-container">
 
     <div class="profile">
-      <div class="profile-header"></div>
-      <div class="profile-photo"></div>
+      {% if profile.header %}
+        <div class="profile-header" style="background: url('{{profile.header.url}}');"></div>
+      {% else %}
+        <div class="profile-header"></div>
+      {% endif %}
+
+      {% if profile.avatar %}
+        <div class="profile-photo" style="background: url('{{profile.avatar.url}}');"></div>
+      {% else %}
+        <div class="profile-photo"></div>
+      {% endif %}
       <div class="profile-settings">
         <div class="counter-mgb">
           <span class="movies">9 movies</span>
           <span class="games">13 games</span>
           <span class="books">9 books</span>
         </div>
-        <button class="edit-profile">Edit profile</button>
+        <button class="edit-profile" id="editProfileBtn">Edit profile</button>
         <button class="share-profile">
           <img src="{% static 'imgs/icons/share.svg' %}" alt="language icon">
         </button>
 
       </div>
       <div class="profile-info">
-        <h1>Nickname</h1>
-        <p>Lorem ispum is simply dummy text of the printing</p>
+        <h1>{{ profile.username }}</h1>
+        <p>{{ profile.bio }}</p>
         <div class="joining-date">
           <img src="{% static 'imgs/icons/calendar.svg' %}" alt="language icon">
-          <p>Joined  </p> <!--{{ user.date_joined }}-->
+          <p>Joined {{ profile.date_joined|date:"F d, Y" }}</p>
         </div>
         <div class="follow">
           <p><span>12</span> Following</p>
@@ -43,6 +52,82 @@
       </div>
       
     </div>
+
+    <div id="editProfile" class="hidden">
+      <div class="change-modal">
+        <button class="close-modal">
+            <img src="{% static 'imgs/icons/krestik.svg' %}" alt="Close">
+        </button>
+        <h1>Edit profile</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div class="header-avatar-profile">
+              <!-- Шапка профиля -->
+              <div class="profile-header-block">
+                {% if profile.header %}
+                    <div id="headerPreview" class="profile-header-change" style="background-image: url('{{ profile.header.url }}');">
+                            <!-- Кнопка выбора фото -->
+                      <button class="btn-change-header">
+                        <input type="file" name="header" id="headerUpload">
+                        <div class="btn-icon"></div>
+                      </button>
+                    </div>
+                {% else %}
+                    <div id="headerPreview" class="profile-header-change">
+                      <!-- Кнопка выбора фото -->
+                      <button class="btn-change-header">
+                        <input type="file" name="header" id="headerUpload">
+                        <div class="btn-icon"></div>
+                      </button>
+                    </div>
+                {% endif %}
+
+                
+              </div>
+              
+
+              <!-- Аватар -->
+              <div class="profile-avatar">
+                {% if profile.avatar %}
+                  <div id="avatarPreview" class="profile-avatar-change" style="background: url('{{profile.avatar.url}}');">
+                    <!-- Кнопка выбора фото -->
+                    <button class="btn-change-avatar">
+                      <input type="file" name="avatar" id="avatarUpload">
+                      <div class="btn-icon"></div>
+                    </button>
+                  </div>
+                {% else %}
+                  <div id="avatarPreview" class="profile-avatar-change">
+                      <!-- Кнопка выбора фото -->
+                    <button class="btn-change-avatar">
+                      <input type="file" name="avatar" id="avatarUpload">
+                      <div class="btn-icon"></div>
+                    </button>
+                  </div>
+                {% endif %}
+
+              </div>
+            </div>
+
+            <div class="profile-info-change">
+              <!-- Поле для изменения ника -->
+              <div class="profile-username">
+                <input placeholder="Username" type="text" name="username" value="{{ profile.username }}">
+              </div>
+
+              <!-- Описание профиля -->
+              <div class="profile-bio">
+                  <textarea placeholder="bio" name="bio">{{ profile.bio }}</textarea>
+              </div>
+            </div>
+            <div class="save-changes">
+              <button class="btn-save-changes" type="submit">Save</button>
+            </div>
+        </form>
+      </div>
+    </div>
+
 
     <div class="tabs">
       <button class="active" onclick="showTab('reviews')">Reviews</button>

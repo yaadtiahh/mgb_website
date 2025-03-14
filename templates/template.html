@@ -17,7 +17,7 @@
   <header class="header">
     <div class="header-left">
       <div class="logo_header">
-        <a href="/">
+        <a href="{% if user.is_authenticated %}{% url 'index' %}{% else %}{% url 'home' %}{% endif %}">
           <img src="{% static 'imgs/MGB_logo.svg' %}" alt="main logo">
         </a>
       </div>
@@ -59,59 +59,75 @@
         </div>
       </div>
       <div class="sign_header">
-        <a href="/profile">
-          <img src="{% static 'imgs/icons/profile_btn.svg' %}" alt="profile default">
-        </a>
+        {% if user.is_authenticated %}
+          
+          <a href="{% url 'profile' %}">
+            <img src="{% static 'imgs/icons/profile_btn.svg' %}" alt="profile default">
+          </a>
+        {% else %}
+          <a href="{% url 'login' %}">
+            <img src="{% static 'imgs/icons/profile_btn.svg' %}" alt="profile default">
+          </a>
+        {% endif %}
+
+
+        {% if user.is_authenticated %}
+          <div class="profile-block">
+            <div class="profile-info-block">
+              <img src="{% static 'imgs/icons/profile_btn.svg' %}" alt="profile default">
+              <h1>{{ profile.username }}</h1>
+              <p>{{ profile.email }}</p>
+            </div>
+
+            <hr>
+
+            <div class="profile-tools">
+              <div class="profile-tool">
+                <img src="{% static 'imgs/icons/profile_block.svg' %}" alt="profile default">
+                <p>Profile</p>
+              </div>
+
+              <div class="profile-tool">
+                <img src="{% static 'imgs/icons/profile_friends.svg' %}" alt="profile default">
+                <p>Friends</p>
+              </div>
+
+              <div class="profile-tool">
+                <img src="{% static 'imgs/icons/profile_mail.svg' %}" alt="profile default">
+                <p>Notifications</p>
+              </div>
+
+              <div class="profile-tool">
+                <img src="{% static 'imgs/icons/profile_settings.svg' %}" alt="profile default">
+                <p>Settings</p>
+              </div>
+              
+            </div>
+
+            <hr>
+            
+            <div class="profile-logout">
+              <div class="profile-tool">
+                <img src="{% static 'imgs/icons/add_account.svg' %}" alt="profile default">
+                <p>Add account</p>
+              </div>
+
+              <form class="btn-logout" action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <button  type="submit">
+                  <img src="{% static 'imgs/icons/logout.svg' %}" alt="profile default">
+                  Log out
+                </button>
+              </form>
+
+            </div>
+          </div>
+        {% endif %}
       </div>
     </div>
   </header>
-  <div class="profile-block">
-    <div class="profile-info-block">
-      <img src="{% static 'imgs/icons/profile_btn.svg' %}" alt="profile default">
-      <h1>yaadtiahh</h1>
-      <p>moyapochta@gmail.com</p>
-    </div>
 
-    <hr>
-
-    <div class="profile-tools">
-      <div class="profile-tool">
-        <img src="{% static 'imgs/icons/profile_block.svg' %}" alt="profile default">
-        <p>Profile</p>
-      </div>
-
-      <div class="profile-tool">
-        <img src="{% static 'imgs/icons/profile_friends.svg' %}" alt="profile default">
-        <p>Friends</p>
-      </div>
-
-      <div class="profile-tool">
-        <img src="{% static 'imgs/icons/profile_mail.svg' %}" alt="profile default">
-        <p>Notifications</p>
-      </div>
-
-      <div class="profile-tool">
-        <img src="{% static 'imgs/icons/profile_settings.svg' %}" alt="profile default">
-        <p>Settings</p>
-      </div>
-      
-    </div>
-
-    <hr>
-    
-    <div class="profile-logout">
-      <div class="profile-tool">
-        <img src="{% static 'imgs/icons/add_account.svg' %}" alt="profile default">
-        <p>Add account</p>
-      </div>
-
-      <div class="profile-tool">
-        <img src="{% static 'imgs/icons/logout.svg' %}" alt="profile default">
-        <p>Log out</p>
-      </div>
-      
-    </div>
-  </div>
+  
 
   <main>
     {% block content %}

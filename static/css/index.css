@@ -1,0 +1,57 @@
+body {
+  overflow-x: hidden; /* Запрещаем скролл */
+  margin: 0;
+}
+
+
+.block-seacrh {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  background:  
+    radial-gradient(circle at center, rgba(0, 0, 0, 0.5), rgba(0, 0, 0)),
+    url("/static/imgs/bg_index.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  gap: 40px;
+}
+
+.block-seacrh h1 {
+  font-size: 45px;
+  color: white;
+  font-weight: 800;
+  font-family: "Roboto", sans-serif;
+}
+
+.main-search {
+  width: 512px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  border-radius: 25px;
+  
+  padding: 0 20px;
+  background-color: rgba(246, 246, 246, 0.05);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px); /* Для Safari */
+  border-bottom: 1px solid #BFBFBF; /* Линия снизу */
+}
+
+.main-search input {
+  width: 100%;
+  height: 100%;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+}
+
+.main-search input::placeholder {
+  color: #BFBFBF;
+  font-size: 16px;
+}

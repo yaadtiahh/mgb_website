@@ -28,7 +28,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+AUTH_USER_MODEL = 'users.User'
 
+LOGIN_REDIRECT_URL = "index"
+LOGOUT_REDIRECT_URL = "home"
+LOGIN_URL = "login"
 # Application definition
 
 INSTALLED_APPS = [
@@ -39,7 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'mgb_main',
-    # 'user',
+    'users',
 ]
 
 MIDDLEWARE = [

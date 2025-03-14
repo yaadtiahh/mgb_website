@@ -1,0 +1,29 @@
+{% extends 'template.html' %}
+
+{% load static %}
+
+{% block title %}
+  Home
+{% endblock %}
+
+{% block css %}
+  <link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
+
+{% block content %}
+  <div class="block-seacrh">
+    
+    <!-- ПОМЕНЯТЬ MGB ШРИФТ -->
+    <h1>Your Voice Shapes the Ratings<br>– Make It Happen with <span style="color: #FF003C;">M</span>G<span style="color: #FF003C;">B</span>!</h1>
+    <div class="main-search">
+      <input type="text" id="animated-input" placeholder="Game search">
+      <img src="{% static 'imgs/icons/zalupa.svg' %}" class="search_zalupa" alt="zalupa">
+    </div>
+  </div>
+
+  <div class="content">
+    <h1>Главный контент</h1>
+  </div>
+
+
+{% endblock %}

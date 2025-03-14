@@ -17,16 +17,24 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from mgb_main import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path("", views.home_view, name="home"),  # Главная страница с редиректом
+    path("index/", views.index_view, name="index"),  # Настоящая главная для авторизованных
 
+    path("movies/", views.movies, name="movies"),
+    # path('movies/<str:movie_id>/', views.movie_detail, name='movie_detail'),
+
+    path("games/", views.games, name="games"),
+    path("books/", views.movies, name="movies"),
 
     path('admin/', admin.site.urls),
 
-    # path('user/', include('user.urls')),
-
-    path('autorization/', views.sign_page, name='sign_page'),
-    path('profile/', views.profile, name='profile'),
+    path('user/', include('users.urls')),
 
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

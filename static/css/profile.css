@@ -14,18 +14,33 @@
   flex-direction: column;
 }
 
-.profile-header {
+.profile-header, .profile-header-change{
   width: 100%;
   height: 300px;
-  background-color: white;
   border-radius: 20px;
+  background-size: cover !important; 
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  position: relative; /* Чтобы кнопка позиционировалась внутри */
+
+}
+
+.profile-header-change {
+  border-radius: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
 }
 
 .profile-info {
   padding: 0 max(75px, calc(50% - 480px));
 }
 
-.profile-photo {
+.profile-photo, .profile-avatar-change {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   top: 225px; 
   left: 75px;
@@ -33,6 +48,14 @@
   width: 134px;
   height: 134px;
   border-radius: 50%;
+  background-size: cover !important; 
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  border: 4px solid #020E1C;
+}
+
+.profile-avatar-change {
+  top: 215px;
 }
 
 .profile-settings {
@@ -90,6 +113,7 @@
   width: 144px;
   height: 38px;
   color: white;
+  cursor: pointer;
 }
 
 .share-profile {
@@ -142,6 +166,175 @@
 .follow span {
   color: white;
   font-weight: 700;
+}
+
+.hidden {
+  display: none;
+}
+
+#editProfile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  background-color: rgba(50, 50, 50, 0.5); /* Плавное затемнение */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  z-index: 100;
+}
+
+#editProfile.--show {
+  opacity: 1;
+  visibility: visible;
+}
+
+#editProfile .change-modal {
+  display: block;
+  width: 700px;
+  background: #020E1C;
+  border-radius: 15px;
+  box-sizing: border-box;
+  transform: translateY(-50px); /* Начальная позиция (чуть выше) */
+  opacity: 0;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+/* Анимация появления */
+.show {
+  display: block;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+#editProfile.--show .change-modal {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Кнопка закрытия */
+.close-modal {
+  top: 25px;
+  left: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background: none;
+  position: absolute;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+#editProfile .change-modal h1{
+  display: block;
+  width: 80%;
+  font-size: 30px;
+  color: white;
+  text-align: left;
+  padding: 25px 10%;
+}
+
+/* Кнопка загрузки фото (по центру) */
+.btn-change-header {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: none;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.btn-change-avatar {
+
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: none;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* Скрываем стандартный input */
+.btn-change-header input[type="file"], .btn-change-avatar input[type="file"]{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Круглая кнопка с иконкой */
+.btn-icon {
+  width: 100%;
+  height: 100%;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  border-radius: 50%;
+  background: url(/static/imgs/icons/change_photo.svg);
+}
+
+
+.profile-info-change {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0 10%;
+  margin-top: 100px;
+}
+
+.profile-info-change input, .profile-info-change textarea {
+  width: 100%;
+  background: none;
+  border: 1px solid #5A5A5A;
+  color: white;
+  border-radius: 5px;
+  font-size: 15px;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.profile-info-change input {
+  height: 60px;
+}
+
+.profile-info-change textarea {
+  height: 150px;
+  resize: none;
+
+}
+
+.save-changes {
+  width: 80%;
+  padding: 25px 10%;
+}
+
+.btn-save-changes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: #FF003C;
+  color: white;
+  border: none;
+  margin-left: auto;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 /*  TABS */

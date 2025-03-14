@@ -9,7 +9,7 @@ body, html {
   outline: none !important;
 }
 
-h1, p, a, li, ul, hr{
+h1, p, a, li, ul, hr, button{
   margin: 0;
   color: white;
   text-decoration: none;
@@ -18,7 +18,12 @@ h1, p, a, li, ul, hr{
 
 /* ПРОФИЛЬ БЛОК */
 .profile-block {
+  display: none;
+}
+
+.sign_header:hover .profile-block {
   display: flex;
+  position: absolute;
   flex-direction: column;
   border-radius: 15px;
   background-color: #031932;
@@ -26,6 +31,8 @@ h1, p, a, li, ul, hr{
   width: 240px;
   height: 395px;
   padding: 5px 0;
+  right: 0;
+  z-index: 1001;
 }
 
 .profile-block hr {
@@ -60,7 +67,7 @@ h1, p, a, li, ul, hr{
   padding: 15px 20px;
 }
 
-.profile-tool {
+.profile-tool, .btn-logout button {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -69,13 +76,24 @@ h1, p, a, li, ul, hr{
   cursor: pointer;
 }
 
-.profile-tool p {
+.btn-logout {
+  width: 100%;
+
+}
+
+.btn-logout button {
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+.profile-tool p, .btn-logout button {
   font-size: 17px;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
 }
 
-.profile-tool:hover {
+.profile-tool:hover, .btn-logout:hover {
   background-color: #6C6C6C;
   border-radius: 5px;
 }
