@@ -28,7 +28,7 @@ urlpatterns = [
     # path('movies/<str:movie_id>/', views.movie_detail, name='movie_detail'),
 
     path("games/", views.games, name="games"),
-    path("books/", views.movies, name="movies"),
+    path("books/", views.books, name="books"),
 
     path('admin/', admin.site.urls),
 

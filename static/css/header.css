@@ -31,6 +31,7 @@ header {
   gap: max(75px);
   gap: auto;
 }
+
 .nav_header ul {
   display: flex;
   flex-direction: row;
@@ -38,11 +39,38 @@ header {
   gap: 50px;
 }
 
-.nav_header li {
-  font-size: 19px;
-  color: white;
+.nav_header ul li a {
+  position: relative;
+  text-decoration: none;
   font-family: "Roboto", sans-serif;
   font-weight: 500;
+  color: #6C6C6C;
+  padding-bottom: 5px;
+  font-size: 18px;
+  display: inline-block;
+  transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+  transform-origin: center;
+}
+
+.nav_header ul li a.active {
+  color: white;
+  transform: scale(1.1);
+}
+
+.nav_header ul li a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  width: 0%;
+  height: 3px;
+  background-color: #FF003C;
+  transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+.nav_header ul li a.active::after {
+  width: 100%;
+  left: 0;
 }
 
 /*  ХЭДЕР ПРАВО */

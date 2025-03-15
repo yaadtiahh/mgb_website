@@ -23,9 +23,9 @@
       </div>
       <nav class="nav_header">
         <ul>
-          <li><a href="/movies">Movies</a></li>
-          <li><a href="/games">Games</a></li>
-          <li><a href="/books">Books</a></li>
+          <li><a href="{% url 'movies' %}" class="{% if '/movies' in request.path %}active{% endif %}">Movies</a></li>
+          <li><a href="{% url 'games' %}" class="{% if '/games' in request.path %}active{% endif %}">Games</a></li>
+          <li><a href="{% url 'books' %}" class="{% if '/books' in request.path %}active{% endif %}">Books</a></li>
         </ul>
       </nav>
     </div>
