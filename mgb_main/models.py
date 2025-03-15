@@ -20,6 +20,10 @@ class CustomGame(models.Model):
     logotype_game = models.ImageField(upload_to='static/imgs/games_images', blank=True, null=True, verbose_name='Лого игры')
     description = models.TextField(blank=True)
     release_date = models.DateField()
+    rating_game = models.IntegerField(default=6)
+    rating_color = models.CharField(max_length=7, default="white")
+
+    btn_color = models.CharField(max_length=7, default="FF003C")
 
     def __str__(self):
         return self.title

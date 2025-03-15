@@ -94,7 +94,7 @@ h1, p, a, li, ul, h3{
   z-index: 1000;
   width: 100%;
   padding-bottom: 200px;
-  background: rgba(2, 14, 28, 0.841);
+  background: rgb(2, 14, 28);
   padding-left: max(24px, calc(50% - 600px));
   padding-right: max(24px, calc(50% - 600px));
   padding-top: 50px;
@@ -164,14 +164,14 @@ h1, p, a, li, ul, h3{
   border-radius: 25px;
   background: linear-gradient(to right, #00152D 0%, #002F66 100%);
   transition: background 2s ease-in-out;
-  transition: transform 1s; /* Переход 1 секунда */
+  transition: transform 0.5s;
   z-index: 2;
   box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.5);
 }
 
 .tracking-lists:hover, 
 .ratings-reviews:hover, 
-.friends-social-features:hover, 
+.friends-social-features:hover,
 .discovery-recs:hover {
   transform: scale(1.05);
   background: linear-gradient(to right, #011e3f 0%, #013d81 100%);
@@ -184,7 +184,7 @@ h1, p, a, li, ul, h3{
 }
 
 .plus-icon {
-  transition: transform 1s ease-in-out;
+  transition: transform 0.5s ease-in-out;
 }
 
 .mgb-functions button.active .plus-icon {

@@ -7,7 +7,7 @@ body {
   margin-top: 100px;
   display: flex;
   justify-content: center;
-  height: 560px;
+  height: 650px;
   padding: 0 100px;
 }
 
@@ -88,12 +88,23 @@ body {
 
 .game-info .mini-info{
   display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.game-info .custom-game-ratings p{
+  color: #878787;
+  font-size: 15px;
+  margin: 0;
+}
+.custom-game-ratings {
+  display: flex;
   flex-direction: row;
   gap: 5px;
 }
 
-.game-info .mini-info p{
-  color: #878787;
+.custom-game-description .game-description p {
+  color: white;
   font-size: 15px;
   margin: 0;
 }
@@ -109,6 +120,8 @@ body {
 .btns-game {
   display: flex;
   flex-direction: row;
+  margin-top: 30px;
+  gap: 10px;
 }
 
 .btn-star, .btn-favourite {
@@ -119,6 +132,26 @@ body {
   background: none;
   cursor: pointer;
   border-radius: 50%;
+  height: 44px;
+  width: 44px;
+  z-index: 2000;
+}
+
+.btn-played {
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  width: 140px;
+  height: 44px;
+  z-index: 2000;
+  border-radius: 30px;
+  color: white;
+  font-size: 17px;
+  font-weight: 600;
+  padding: 0px 20px;
+  background-color: rgba(15, 15, 15, 0.5);
 }
 
 .btn-learn {
@@ -131,4 +164,89 @@ body {
   align-items: center;
   border: none;
   border-radius: 14px;
+  cursor: pointer;
+}
+
+.btn-learn,
+.btn-favourite,
+.btn-played {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.btn-learn.hidden,
+.btn-favourite.hidden,
+.btn-played.hidden {
+    opacity: 0;
+    transform: scale(0.9);
+    pointer-events: none;
+}
+
+
+.rating-container {
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  gap: 20px;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 30px;
+  margin-left: 60px;
+}
+
+.rating-container.visible {
+  opacity: 1;
+  transform: translateX(0);
+  background-color: hsla(0, 0%, 6%, 0.5);
+  height: 44px;
+  width: 410px;
+}
+
+.rating-container.closing {
+  opacity: 0;
+  transform: translateX(-50px);
+}
+
+.rating-options {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 0 10px;
+}
+
+.rating-btn, .btn-trash , .star-rating{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  border: none;
+  color: #6C6C6C;
+  background: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: 900;
+  padding: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.btn-star {
+  border: none;
+  background: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.icon-close {
+  position: absolute;
+  top: 0;
+  left: 0;
 }

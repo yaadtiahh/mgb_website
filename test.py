@@ -1,15 +1,20 @@
 import requests
 import json
 
-API_KEY = "CEMFGF9-H2Q47QZ-PATNWWK-5RBSHDP"
-QUERY = "Однажды в Голливуде"
+url = "https://api.igdb.com/v4/games"
 
-url = f"https://api.kinopoisk.dev/v1.4/movie/search?page=1&limit=10&query={QUERY}&exact=true"
-headers = {"X-API-KEY": API_KEY}
+headers = {
+    "Client-ID": "o1fqvvct2tz1j121vbcqdqbpejpkgv",
+    "Authorization": "Bearer 7p6w6d9j8yzy87bc81mkoaqbjrurvh",
+    "Accept": "application/json"
+}
 
-response = requests.get(url, headers=headers)
-data = response.json()
+body = """
+fields name, genres, rating, first_release_date, summary, platforms, multiplayer_modes, videos, tags, slug;
+limit 100;
+"""
 
-exact_results = [movie for movie in data.get("docs", []) if movie["name"] == QUERY]
+response = requests.post(url, headers=headers, data=body)
 
-print(json.dumps(exact_results, indent=4, ensure_ascii=False))
+response_data = response.json()
+print(json.dumps(response_data, indent=4, ensure_ascii=False))

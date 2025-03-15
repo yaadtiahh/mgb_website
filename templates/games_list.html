@@ -23,21 +23,49 @@
             <div class="game-info">
               <img src="{{ game.logotype_game.url }}" alt="">
               <div class="mini-info">
-                <p style="color: greenyellow;">8,8</p>
-                <p>{{ game.release_date }},</p>
-                <p>RPG ROUND8 Studio, Neowiz  18+</p>
+                <div class="custom-game-ratings">
+                  <p style="color: {{ game.rating_color }};">8,8</p>
+                  <p>{{ game.release_date }},</p>
+                  <p>RPG ROUND8 Studio, Neowiz  18+</p>
+                </div>
+                <div class="custom-game-description">
+                  <p class="game-description">{{ game.description }}</p>
+                </div>
               </div>
-              <p>{{ game.description }}</p>
 
               <div class="btns-game">
                 <button class="btn-star">
-                  <img src="{% static 'imgs/icons/star_btn.svg' %}" alt="">
+                  <img src="{% static 'imgs/icons/star_btn.svg' %}" alt="" class="icon-star">
+                  <img src="{% static 'imgs/icons/close_btn.svg' %}" alt="" class="icon-close hidden">
                 </button>
                 <button class="btn-favourite">
                   <img src="{% static 'imgs/icons/fav_btn.svg' %}" alt="">
                 </button>
-                <button class="btn-learn">Learn More</button>
+                <button class="btn-played">
+                  Played
+                  <img src="{% static 'imgs/icons/watch.svg' %}" alt="">
+                </button>
+                <button class="btn-learn" style="background-color: {{ game.btn_color }};">Learn More</button>
+
+
+                <!-- Блок с оценками (изначально скрыт) -->
+                <div class="rating-container">
+                  <div class="rating-options">
+                    <button class="btn-trash">
+                      <img class="star-rating" src="{% static 'imgs/icons/trash_btn.svg' %}" alt="">
+                    </button>
+                    <img src="{% static 'imgs/icons/gray_star.svg' %}" alt="">
+                    
+                      {% for i in "123456789" %}
+                          <button class="rating-btn">{{ i }}</button>
+                      {% endfor %}
+                      <button class="rating-btn">10</button>
+                  </div>
+                </div>
               </div>
+
+              
+
             </div>
             
           </div>
@@ -47,25 +75,7 @@
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script>
-    const swiper = new Swiper('.swiper', {
-        loop: true,
-        autoplay: { delay: 3000 },
-        effect: 'slide',
-        speed: 800,
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="{% static 'scripts/games.js' %}"></script>
 
-        grabCursor: true,
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-            renderBullet: function (index, className) {
-                return '<span class="' + className + '"></span>';
-            },
-        },
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-    });
-</script>
 {% endblock %}
