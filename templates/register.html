@@ -48,11 +48,13 @@
           {% endif %}
           
           <p>By signing up, you agree to <a style="color: #FF003C;">MGB Terms</a> and <a style="color: #FF003C;">Policies</a></p>
-          <div class="captcha"></div>
+          <!-- {{ form.captcha }} -->
           <button class="btn-reg-next" type="submit">Next</button>
         </form> 
       </div>
     </div>
   
   </div>
+
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 {% endblock %}

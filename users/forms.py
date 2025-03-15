@@ -1,9 +1,11 @@
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, UserChangeForm
 from .models import User
+# from django_recaptcha.fields import ReCaptchaField
 
 
 class UserLoginForm(AuthenticationForm):
+
     username = forms.CharField(
         widget=forms.TextInput(attrs={"autofocus": True,
                                       "placeholder": "Login"})
@@ -18,6 +20,8 @@ class UserLoginForm(AuthenticationForm):
 
 
 class UserRegistrationForm(UserCreationForm):
+    # captcha = ReCaptchaField()
+
     class Meta:
         model = User
         fields = {
@@ -25,6 +29,7 @@ class UserRegistrationForm(UserCreationForm):
             "email",
             "password1",
             "password2",
+            # "captcha"
         }
 
     username = forms.CharField(

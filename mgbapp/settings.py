@@ -46,6 +46,14 @@ INSTALLED_APPS = [
     'users',
 ]
 
+INSTALLED_APPS += ['django_recaptcha']
+
+RECAPTCHA_PUBLIC_KEY = "6LcpB_UqAAAAAMBYEmS9byM9l5QskGMOMFT8gdzB"
+
+RECAPTCHA_REQUIRED_SCORE = 0.85  # (для v3, можно не указывать)
+SILENCED_SYSTEM_CHECKS = ["django_recaptcha.recaptcha_test_key_error"]
+
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

@@ -27,17 +27,21 @@ h1, p, a, li, ul, hr, button{
   flex-direction: column;
   border-radius: 15px;
   background-color: #031932;
-  justify-content: center;
+  
   width: 240px;
   height: 395px;
-  padding: 5px 0;
   right: 0;
+  top: 0;
   z-index: 1001;
+  margin-top: 18px;
+  margin-right: calc(50% - 640px);
 }
 
 .profile-block hr {
   border-color: #002249;
   width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .profile-info-block {
@@ -45,6 +49,10 @@ h1, p, a, li, ul, hr, button{
   flex-direction: column;
   align-items: center;
   padding-bottom: 15px;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: cover !important;
+  border-radius: 15px 15px 0 0;
 }
 
 .profile-info-block h1 {
@@ -78,7 +86,6 @@ h1, p, a, li, ul, hr, button{
 
 .btn-logout {
   width: 100%;
-
 }
 
 .btn-logout button {
@@ -87,7 +94,7 @@ h1, p, a, li, ul, hr, button{
   padding: 0;
 }
 
-.profile-tool p, .btn-logout button {
+.profile-tool a, .btn-logout button {
   font-size: 17px;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
@@ -96,4 +103,15 @@ h1, p, a, li, ul, hr, button{
 .profile-tool:hover, .btn-logout:hover {
   background-color: rgba(0, 54, 120, 0.25);
   border-radius: 5px;
+}
+
+.profile-logo-header, .profile-logo-header-block {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+.profile-logo-header-block {
+  margin-top: 20px;
 }
