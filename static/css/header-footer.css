@@ -19,8 +19,13 @@ header {
   padding-left: max(24px, calc(50% - 640px));
   padding-right: max(24px, calc(50% - 640px));
   box-sizing: border-box;
+
+  transition: transform 0.4s ease-in-out;
 }
 
+.header-hidden {
+  transform: translateY(-100%);
+}
 /*  ХЭДЕР ЛЕВО */
 /* _______________________________________________________________________________________________ */
 .header-left{

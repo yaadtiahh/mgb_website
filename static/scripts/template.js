@@ -1,29 +1,39 @@
-document.getElementById("dropdownButtonSearch").addEventListener("click", function() {
-  let menu = document.getElementById("dropdownSearch");
-  menu.style.display = (menu.style.display === "block" || menu.style.display === "") ? "none" : "block";
-});
-
-document.getElementById("dropdownButtonLanguage").addEventListener("click", function() {
+document.addEventListener("DOMContentLoaded", function () {
+  let searchButton = document.getElementById("dropdownButtonSearch");
+  let languageButton = document.getElementById("dropdownButtonLanguage");
+  let searchMenu = document.getElementById("dropdownSearch");
   let languageMenu = document.getElementById("dropdownLanguage");
-  languageMenu.style.display = (languageMenu.style.display === "block" || languageMenu.style.display === "") ? "none" : "block";
-});
+  let header = document.querySelector("header");
 
-
-
-
-
-document.addEventListener("click", function(event) {
-  let menu = document.getElementById("dropdownSearch");
-  let buttonSearch = document.getElementById("dropdownButton");
-
-  let languageMenu = document.getElementById("dropdownSearch");
-  let buttonLanguage = document.getElementById("dropdownButton");
-
-  if (!menu.contains(event.target) && !buttonSearch.contains(event.target)) {
-    menu.style.display = "none";
+  if (searchButton && searchMenu) {
+      searchButton.addEventListener("click", function () {
+          searchMenu.style.display = (searchMenu.style.display === "block") ? "none" : "block";
+      });
   }
 
-  if (!menu.contains(event.target) && !buttonLanguage.contains(event.target)) {
-    menu.style.display = "none";
+  if (languageButton && languageMenu) {
+      languageButton.addEventListener("click", function () {
+          languageMenu.style.display = (languageMenu.style.display === "block") ? "none" : "block";
+      });
   }
+
+  document.addEventListener("click", function (event) {
+      if (searchMenu && !searchMenu.contains(event.target) && !searchButton.contains(event.target)) {
+          searchMenu.style.display = "none";
+      }
+      if (languageMenu && !languageMenu.contains(event.target) && !languageButton.contains(event.target)) {
+          languageMenu.style.display = "none";
+      }
+  });
+
+  window.addEventListener("scroll", () => {
+      let scrollTop = window.scrollY || document.documentElement.scrollTop;
+      let scrollThreshold = document.body.scrollHeight * 0.2; // 30% от всей высоты страницы
+
+      if (scrollTop > scrollThreshold) {
+          header.classList.add("header-hidden");
+      } else {
+          header.classList.remove("header-hidden");
+      }
+  });
 });
