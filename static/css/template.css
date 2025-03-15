@@ -94,6 +94,6 @@ h1, p, a, li, ul, hr, button{
 }
 
 .profile-tool:hover, .btn-logout:hover {
-  background-color: #6C6C6C;
+  background-color: rgba(0, 54, 120, 0.25);
   border-radius: 5px;
 }

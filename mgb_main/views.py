@@ -12,11 +12,7 @@ def home_view(request):
 
 @login_required
 def index_view(request):
-    profile = {
-        "username": request.user.username,
-        "email": request.user.email
-    }
-    return render(request, "index.html", {"profile": profile})
+    return render(request, "index.html")
 
 
 def profile(request):
